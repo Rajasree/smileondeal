@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile On DEAL</title>    
+    <%#= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js" %>
+    <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js" %>
+    <%=  javascript_include_tag 'welcome.js' %>
+    
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'icon_integrity.png', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'icon_integrity.png', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'icon_integrity.png', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'icon_integrity.png', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'icon_integrity.png' %>
+    
+  </head>
+  <!-- <body ng-app="dealList" ng-controller="MainCtrl"> -->
+  <body>
+    <%= javascript_include_tag "app.js" %>
+
+    <div>
+   <!--  <div ng-controller="ExampleController">
+      <input type="text" ng-model="greeting" aria-label="greeting" />
+      <button ng-click="doGreeting(greeting)">ALERT</button>
+    </div> -->
+
+      <div>
+        <h1>
+        <a href="#">SmileOnDEAL</a>
+        </h1>
+        <ng-view></ng-view>
+
+       
+
+
+      </div>
+
+    </div>
+
+
+
+
+    <div>
+      <div>
+        <%#= render partial: 'welcome/devise_links' %>
+        <div>          
+          <%= yield %>
+        </div>
+        <%#= render partial: 'welcome/sidebar_nav' %>        
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div>
+
+  </body>
+</html>

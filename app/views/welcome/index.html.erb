@@ -1,0 +1,42 @@
+<div class="container" ng-app="myapp">
+        
+  <div ng-controller="WelcomeController">
+    <div class="navbar navbar-default ">
+    
+      <ul class="nav navbar-nav">                
+        <li ng-repeat="menu in menus" class="dropdown" ng-init="navCollapsed=true;">
+          <a ng-click="category_click($event, menu)" data-toggle="dropdown" class="dropdown-toggle">{{menu.name}} <span class="caret"></span></a>                  
+          <ul class="navCollapsed dropdown-menu">
+            <li ng-repeat="submenu in menu.sub_categories">
+              <a ng-click="sub_category_click($event, submenu)" data-toggle="dropdown" class="dropdown-toggle" >{{submenu.name}}</a>
+              <ul class="navCollapsed dropdown-menu pull-right"  style="position: relative;">
+                <li ng-repeat="section in submenu.sections">
+                  <!-- <a ng-href="/products/{{ section.id }}" data-toggle="dropdown" class="dropdown-toggle">{{section.name}}</a> -->
+                  <a ng-click="show_products(section.id)" data-toggle="dropdown" class="dropdown-toggle">{{section.name}}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>                
+        </li>
+        
+      </ul>
+    </div>
+
+    <div ng-if="products!==undefined">
+
+    <div class="col-lg-3">
+    <h3>Feature Products</h3>
+      <div class="well sidebar-nav" ng-repeat="product in products">        
+        <ul class="nav nav-list">
+          <li class="nav-header" >{{ product.name }}</li>
+          <li>{{ product.description }}</li>
+          <ul ng-init="feature=product.product_features[0]">
+            <li>Size: {{ feature.size }}</li>
+            <li>Storage: {{ feature.storage }}</li>
+            <li>Price: {{ feature.price }}</li>
+          </ul>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+    </div>
+</div>
